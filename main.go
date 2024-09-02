@@ -50,10 +50,8 @@ func (r *rectangle) checkPoint(p point) bool {
 	PAD := areaTriangle(p, r.a, r.d)
 
 	trianglesArea := PAB + PBC + PCD + PAD
-	fmt.Println("Triangles area: ", trianglesArea)
 
 	rectangleArea := r.areaRectangle()
-	fmt.Println("Rectangle area : ", rectangleArea)
 
 	return trianglesArea <= rectangleArea
 
@@ -62,13 +60,10 @@ func main() {
 
 	rectangle := newRectangle(point{1, 2}, point{5, 2}, point{5, 6}, point{1, 6})
 
-	fmt.Println(rectangle.areaRectangle())
-	fmt.Println(rectangle.checkPoint(point{3, 4}))
-
 	if rectangle.checkPoint(point{3, 4}) {
-		fmt.Printf("Point %v is inside of the rectangle %v\n", point{3, 4}, rectangle)
+		fmt.Printf("Point %v is inside of the rectangle %v\n", point{3, 4}, *rectangle)
 	} else {
-		fmt.Printf("Point %v is not inside of the rectangle %v\n", point{3, 4}, rectangle)
+		fmt.Printf("Point %v is not inside of the rectangle %v\n", point{3, 4}, *rectangle)
 	}
 
 }
